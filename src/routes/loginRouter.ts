@@ -1,10 +1,8 @@
 import { Router } from "express";
-import tarefasController from "../controllers/tarefasController";
+import loginController from "../controllers/loginController"
 
 const rotaLogin = Router();
 
-rotaLogin.post("/", ()=>{
-    console.log('ok')
-})
+rotaLogin.post("/", loginController.loginCliente)
 
 export default rotaLogin;
