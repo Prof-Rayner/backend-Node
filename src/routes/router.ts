@@ -1,9 +1,10 @@
 import { Router } from "express";
 import rotaTarefa from "./tarefasRouter";
 import rotaLogin from "./loginRouter";
-import rotaQuartos from "./quartosRouter";
 import { createJWT } from "../utils/jwt";
 import { middleware } from "./jwtMiddleware";
+
+import rotaQuartos from "./quartosRouter";
 
 const handlerRouter = Router();
 
