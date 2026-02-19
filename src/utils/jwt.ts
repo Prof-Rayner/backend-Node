@@ -25,7 +25,6 @@ export function verifyJWT(token:string){
             return undefined
         }
         return decoded
-        
     })
 }
 

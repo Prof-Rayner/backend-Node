@@ -5,6 +5,7 @@ import { createJWT } from "../utils/jwt";
 import { middleware } from "./jwtMiddleware";
 
 import rotaQuartos from "./quartosRouter";
+import rotaReservas from "./reservaRouter";
 
 const handlerRouter = Router();
 
@@ -13,6 +14,8 @@ handlerRouter.use("/tarefas", rotaTarefa);
 handlerRouter.use("/api/login", rotaLogin);
 handlerRouter.use("/api/quartosDisponiveis", rotaQuartos);
 
+// rotas privadas
+handlerRouter.use("/api/reserva", middleware, rotaReservas);
 
 
 handlerRouter.use("/jwt", (req, res)=>{
@@ -23,10 +26,10 @@ handlerRouter.use("/jwt", (req, res)=>{
     }
     res.json(createJWT(payload))
 })
-
-// rotas privadas
 handlerRouter.get("/testeJWT", middleware, (req, res)=>{
     res.json("passou pelo JWT middleware")
 })
+
+
 
 export default handlerRouter

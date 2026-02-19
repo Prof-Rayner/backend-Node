@@ -11,7 +11,7 @@ test("POST / login = 200", async () => {
     });
     expect(res.status).toBe(200);
     const json = await res.json()
-    console.log(json);
+    // console.log(json);
 });
 
 
@@ -42,5 +42,5 @@ test("POST / create = 200", async () => {
     });
     expect(res.status).toBe(200);
     const token = await res.json();
-    console.log(token)
+    // console.log(token)
 });
