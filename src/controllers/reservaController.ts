@@ -1,14 +1,10 @@
 import {Request, Response, NextFunction} from "express"
 import reservaRespository from "../repositories/reservaRespository";
+import {corrigirDataHora} from "../utils/datahora";
 
-async function corrigirDataHora(data:string, hora:number) {
-    let novaData = new Date(data)
-    novaData.setHours(hora, 0, 0, 0)
-    return novaData.toLocaleString("pt-BR", { timeZone: "UTC" })
-}
 
 async function criarPedido(req:Request, res:Response, next:NextFunction) {
-    const token = req.payload;
+    const token = req.payload ;
     const {pagamento, quartos} = req.body;
 
     if (!token.id || !pagamento || !quartos){
@@ -36,7 +32,6 @@ async function criarPedido(req:Request, res:Response, next:NextFunction) {
                 reservaID: reservaID,
             })
         }
-        console.log(result)
 
         res.status(200).json({
             message:"Reserva feita com sucesso",
