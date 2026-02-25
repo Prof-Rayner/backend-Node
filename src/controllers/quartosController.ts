@@ -25,7 +25,7 @@ async function disponiveis(req:Request, res:Response, next:NextFunction) {
         res.status(200).json(quartos);
 
     } catch (error) {
-        console.log(error)
+        console.error(error)
         return res.status(400).json({erro:"Erro ao buscar os quartos"})
     }
     

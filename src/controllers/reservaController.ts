@@ -41,7 +41,7 @@ async function criarPedido(req:Request, res:Response, next:NextFunction) {
 
 
     } catch (error) {
-        console.log(error)
+        console.error(error)
         return res.status(400).json({erro: "Reserva não efetuada!"})
     }
 
